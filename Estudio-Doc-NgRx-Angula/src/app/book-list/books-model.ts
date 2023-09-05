@@ -1,7 +1,7 @@
 export interface Book {
     id: string,
-    volumenInfo: {
+    volumeInfo: {
         title: string,
-        author: Array<string>
+        authors: Array<string>
     }
 }
