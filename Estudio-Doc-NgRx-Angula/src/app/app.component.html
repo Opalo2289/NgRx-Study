@@ -1,5 +1,13 @@
 <app-book-collection></app-book-collection>
 
+<h2>Books-list</h2>
+
+<div class="book-item" *ngFor="let book of books$ | async">
+
+  <p>{{book.volumeInfo.title}}</p><span> by {{book.volumeInfo.authors}}</span>
+  <!-- <button (click)="add.emit(book.id)" data-test="add-button">Add to Collection</button> -->
+</div>
+
 
 
 

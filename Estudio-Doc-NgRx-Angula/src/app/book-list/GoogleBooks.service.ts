@@ -15,9 +15,10 @@ export class GoogleBooksService {
   getBooks(): Observable<Array<Book>> {
     
     return this.http.get<{ items: Book[] }>(
+      
       'https://www.googleapis.com/books/v1/volumes?maxResults=5&orderBy=relevance&q=oliver%20sacks'
-    ).pipe(
-      map((books) => {
+
+    ).pipe( map((books) => {
         console.log('Libros obtenidos:', books.items || []);
         return books.items || [];
       })

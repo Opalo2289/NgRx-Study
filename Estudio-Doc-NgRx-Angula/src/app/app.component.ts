@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter } from '@angular/core';
 import { Store } from '@ngrx/store';
  
 import { selectBookCollection, selectBooks } from './state/books.selectors';
 import { BooksActions, BooksApiActions } from './state/book.actions';
-import { GoogleBooksService } from './book-list/books.service';
+import { GoogleBooksService } from './book-list/GoogleBooks.service';
 
 @Component({
   selector: 'app-root',
@@ -23,10 +23,10 @@ export class AppComponent {
     this.store.dispatch(BooksActions.removeBook({ bookId }));
   }
  
-  constructor(private booksService: GoogleBooksService, private store: Store) {}
+  constructor(private  GoogleBooksService: GoogleBooksService, private store: Store) {}
  
   ngOnInit() {
-    this.booksService
+    this.GoogleBooksService
       .getBooks()
       .subscribe((books) =>
         this.store.dispatch(BooksApiActions.retrievedBookList({ books }))
